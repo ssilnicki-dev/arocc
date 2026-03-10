@@ -290,6 +290,8 @@ pub const Token = struct {
         keyword_imag2,
         keyword_real1,
         keyword_real2,
+        /// __thread
+        keyword_thread,
 
         // clang keywords
         keyword_fp16,
@@ -459,6 +461,7 @@ pub const Token = struct {
                 .keyword_imag2,
                 .keyword_real1,
                 .keyword_real2,
+                .keyword_thread,
                 .keyword_float16,
                 .keyword_fp16,
                 .keyword_bf16,
@@ -764,6 +767,7 @@ pub const Token = struct {
                 .keyword_imag2 => "__imag__",
                 .keyword_real1 => "__real",
                 .keyword_real2 => "__real__",
+                .keyword_thread => "__thread",
                 .keyword_fp16 => "__fp16",
                 .keyword_bf16 => "__bf16",
                 .keyword_declspec => "__declspec",
@@ -1087,6 +1091,7 @@ pub const Token = struct {
         .{ "__imag__", .keyword_imag2 },
         .{ "__real", .keyword_real1 },
         .{ "__real__", .keyword_real2 },
+        .{ "__thread", .keyword_thread },
 
         // clang keywords
         .{ "__fp16", .keyword_fp16 },
@@ -2032,7 +2037,7 @@ test "keywords" {
         \\struct switch typedef union unsigned void volatile
         \\while _Bool _Complex _Imaginary inline restrict _Alignas
         \\_Alignof _Atomic _Generic _Noreturn _Static_assert _Thread_local
-        \\__attribute __attribute__
+        \\__attribute __attribute__ __thread
         \\
     , &.{
         .keyword_auto,
@@ -2088,6 +2093,7 @@ test "keywords" {
         .nl,
         .keyword_attribute1,
         .keyword_attribute2,
+        .keyword_thread,
         .nl,
     });
 }

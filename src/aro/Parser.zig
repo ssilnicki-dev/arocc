@@ -989,6 +989,7 @@ fn nextExternDecl(p: *Parser) void {
             .keyword_register,
             .keyword_thread_local,
             .keyword_c23_thread_local,
+            .keyword_thread,
             .keyword_inline,
             .keyword_inline1,
             .keyword_inline2,
@@ -1770,6 +1771,7 @@ fn storageClassSpec(p: *Parser, d: *DeclSpec) Error!bool {
                     else => unreachable,
                 }
             },
+            .keyword_thread,
             .keyword_thread_local,
             .keyword_c23_thread_local,
             => {
@@ -5640,6 +5642,7 @@ fn nextStmt(p: *Parser, l_brace: TokenIndex) !void {
             .keyword_register,
             .keyword_thread_local,
             .keyword_c23_thread_local,
+            .keyword_thread,
             .keyword_inline,
             .keyword_inline1,
             .keyword_inline2,
